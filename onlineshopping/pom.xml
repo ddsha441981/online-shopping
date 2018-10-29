@@ -17,6 +17,13 @@
 
 	<dependencies>
 
+		<!-- Link backend Project -->
+		<dependency>
+			<groupId>org.project</groupId>
+			<artifactId>shoppingbackend</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
 		<!-- Java EE API -->
 
 		<dependency>

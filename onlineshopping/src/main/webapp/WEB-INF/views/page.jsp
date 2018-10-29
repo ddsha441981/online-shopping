@@ -22,6 +22,10 @@
 
 <title>Online Shopping - ${title}</title>
 
+<script>
+	window.menu = '${title}';
+</script>
+
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
@@ -58,6 +62,11 @@
 			<c:if test="${userClickContact == true}">
 				<%@ include file="contact.jsp"%>
 			</c:if>
+			
+			<!--  When User Click On All Product and Category Product Page Load only -->
+			<c:if test="${userClickAllProducts == true or userClickCategoryProducts == true}">
+				<%@ include file="listProducts.jsp"%>
+			</c:if>
 
 		</div>
 
@@ -68,6 +77,9 @@
 		<!-- Bootstrap core JavaScript -->
 		<script src="${js}/jquery.min.js"></script>
 		<script src="${js}/bootstrap.bundle.min.js"></script>
+		
+		<!--  Self Coded JavaScript Code myapp.js-->
+		<script src="${js}/myapp.js"></script>
 
 	</div>
 </body>
