@@ -35,16 +35,36 @@
 
 
 		<!-- Junit -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency> -->
+		
+		<!-- Junit version 4.12 -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
 
 		<!-- Spring Web MVC -->
 
-
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+			<exclusions>
+				 <exclusion>
+ 					 <groupId>commons-logging</groupId> 
+ 					 <artifactId>commons-logging</artifactId> 
+ 				 </exclusion>
+			  </exclusions>
+		</dependency>
+		
+		
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>

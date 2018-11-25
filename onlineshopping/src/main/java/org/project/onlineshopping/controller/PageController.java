@@ -1,7 +1,12 @@
 package org.project.onlineshopping.controller;
 
-import org.project.shoppingbackend.dao.CategoryDao;
+import org.project.onlineshopping.exception.ProductNotFoundException;
+import org.project.shoppingbackend.dao.CategoryDAO;
+import org.project.shoppingbackend.dao.ProductDAO;
 import org.project.shoppingbackend.dto.Category;
+import org.project.shoppingbackend.dto.Product;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,8 +16,15 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class PageController {
 
+	
+	//Logger Class
+	private static final Logger logger = LoggerFactory.getLogger(PageController.class);
+	
+	@Autowired(required = true)
+	private CategoryDAO categoryDAO;
+	
 	@Autowired
-	private CategoryDao categoryDao;
+	ProductDAO productDAO;
 
 	@RequestMapping(value = { "/", "/home", "/index" })
 	public ModelAndView index() {
@@ -20,8 +32,13 @@ public class PageController {
 		// mv.addObject("greeting", "Welcome to Spring MVC ");
 		mv.addObject("title", "Home");
 
+		
+		//logger definition
+		logger.info("Inside PageController index Method -INFO");
+		logger.debug("Inside PageController index Method -DEBUG");
+		
 		// passing the list of Categories
-		mv.addObject("categories", categoryDao.list());
+		mv.addObject("categories", categoryDAO.list());
 
 		mv.addObject("userClickHome", true);
 		return mv;
@@ -53,24 +70,24 @@ public class PageController {
 		mv.addObject("title", "All Products");
 
 		// passing the list of Categories
-		mv.addObject("categories", categoryDao.list());
+		mv.addObject("categories", categoryDAO.list());
 
 		mv.addObject("userClickAllProducts", true);
 		return mv;
 	}
 		
-		@RequestMapping(value  = "/show/category/{id}/products")
+		@RequestMapping(value = "/show/category/{id}/products")
 		public ModelAndView showCategoryProducts(@PathVariable("id") int id) {
 		ModelAndView mv = new ModelAndView("page");
 		
 		//categoryDAO to fetch a single category
 		Category category = null;
-		category = categoryDao.get(id);
+		category = categoryDAO.get(id);
 		
 		mv.addObject("title", category.getName());
 
 		// passing the list of Categories
-		mv.addObject("categories", categoryDao.list());
+		mv.addObject("categories", categoryDAO.list());
 
 		// passing the single of Category Object
 		mv.addObject("category", category);
@@ -79,6 +96,32 @@ public class PageController {
 		return mv;
 	}
 
+		
+		/*
+		 * Viewing a Single Product*/
+		
+		@RequestMapping(value = "/show/{id}/product")
+		public ModelAndView showSingleProduct(@PathVariable int id) throws ProductNotFoundException{
+			
+			ModelAndView mv = new ModelAndView("page");
+			
+			Product product = productDAO.get(id);
+			
+			//To handle custom Exception here
+			if(product== null)  throw new ProductNotFoundException();
+			
+			//Update the view count
+			product.setViews(product.getViews() + 1);
+			productDAO.update(product);
+			//...............................
+			
+			mv.addObject("title", product.getName());
+			mv.addObject("product" ,product);
+			mv.addObject("userClickShowProduct" , true);
+			
+			return mv;
+			
+		}
 
 	/*
 	 * @RequestParam is a query string Its for Test Purpose
