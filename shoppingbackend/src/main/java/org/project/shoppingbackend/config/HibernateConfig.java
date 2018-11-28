@@ -54,7 +54,7 @@ public class HibernateConfig {
 
 	// All the hibernate Properties will be returned in this method
 	private Properties getHibernateProperties() {
-		// TODO Auto-generated method stub
+		
 
 		Properties properties = new Properties();
 

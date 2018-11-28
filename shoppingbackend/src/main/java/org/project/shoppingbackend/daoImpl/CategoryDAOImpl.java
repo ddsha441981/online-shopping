@@ -1,5 +1,6 @@
 package org.project.shoppingbackend.daoImpl;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
@@ -12,8 +13,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository("categoryDAO")
 @Transactional
-public class CategoryDAOImpl implements CategoryDAO {
+public class CategoryDAOImpl implements CategoryDAO,Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Autowired
 	SessionFactory sessionFactory;
 
@@ -52,6 +57,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 	 * categories.add(category); }
 	 */
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public List<Category> list() {
 

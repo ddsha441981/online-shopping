@@ -12,14 +12,17 @@ $(function() {
 		$('#listProducts').addClass('active');
 		break;
 		
+	case 'Manage Products':
+		$('#manageProducts').addClass('active');
+		break;
 	 default:
 		 if(menu =="Home") break;
 		$('#listProducts').addClass('active');
 	 $('#a_'+menu).addClass('active');
 		break;
 	}
-
 	
+//-----------------------------------------------------------------------------	
 	//code for jquery datatable
 	//create a dataset for testing purpose for table
 	
@@ -125,5 +128,54 @@ $(function() {
 		
 		
 	}
+	
+//-----------------------------------------------------------------------------
+	
+	//dismissing the alert after 3 second
+	var $alert = $('.alert');
+	
+	if($alert.length){
+		
+		setTimeout(function(){
+			$alert.fadeOut('slow');
+		} , 3000)
+	}
+	
+//-----------------------------------------------------------------------------	
+	
+	//for alert box
+	
+	$('.switch input[type="checkbox"]').on('change', function() {
+		var checkbox = $(this);
+		var checked = checkbox.prop('checked');
+		var dMsg = (checked)? 'You want to activate the Product?':
+							  'You want to deactivate the Product?';
+		var value = checkbox.prop('value');
+		
+		bootbox.confirm({
+			size: 'medium',
+			title: 'Product Activation & Deactivation',
+			message: dMsg,
+			callback: function(confirmed){
+				
+				if(confirmed){
+					console.log(value);
+					bootbox.alert({ 
+						size: 'medium',
+						title: 'Information',
+						message: 'You are going to perform operation on Product'+ value
+					});
+					
+				}
+				else {
+					
+					checkbox.prop('checked', !checked);
+				}
+			}
+			
+		});
+		
+	});
+//-----------------------------------------------------------------------------	
 	
 });

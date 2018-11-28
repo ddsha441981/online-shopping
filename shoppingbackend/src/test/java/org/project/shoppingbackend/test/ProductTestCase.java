@@ -12,6 +12,7 @@ public class ProductTestCase {
 	
 	private static AnnotationConfigApplicationContext context;
 	private static ProductDAO productDAO;
+	@SuppressWarnings("unused")
 	private Product product;
 
 	@BeforeClass
