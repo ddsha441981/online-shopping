@@ -49,7 +49,7 @@ public class Category {
 		this.active = active;
 	}
 	
-	
+	//toString method for logging and debugging activity
 	@Override
 	public String toString() {
 		return "Category [id=" + id + ", name=" + name + ", description=" + description + ", imageUrl=" + imageUrl

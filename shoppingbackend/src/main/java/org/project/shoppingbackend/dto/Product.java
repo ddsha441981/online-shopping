@@ -37,7 +37,7 @@ public class Product {
 	private double unitPrice;
 	private int quantity;
 	@Column(name = "is_active")
-	@JsonIgnore
+	//@JsonIgnore
 	private boolean active;
 	@Column(name = "category_id")
 	@JsonIgnore
@@ -167,4 +167,15 @@ public class Product {
 		this.views = views;
 	}
 
+	//toString method for logging and debugging activity
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", code=" + code + ", name=" + name + ", brand=" + brand + ", description="
+				+ description + ", unitPrice=" + unitPrice + ", quantity=" + quantity + ", active=" + active
+				+ ", categoryId=" + categoryId + ", supplierId=" + supplierId + ", purchases=" + purchases + ", views="
+				+ views + ", file=" + file + "]";
+	}
+
+	
+	
 }
