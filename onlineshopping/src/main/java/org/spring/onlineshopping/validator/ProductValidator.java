@@ -8,7 +8,7 @@ public class ProductValidator implements Validator {
 
 	@Override
 	public boolean supports(Class<?> clazz) {
-		// TODO Auto-generated method stub
+	
 		return Product.class.equals(clazz);
 	}
 

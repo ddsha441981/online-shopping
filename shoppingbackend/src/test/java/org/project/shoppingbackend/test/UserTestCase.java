@@ -2,6 +2,8 @@ package org.project.shoppingbackend.test;
 
 import static org.junit.Assert.assertEquals;
 
+import java.io.Serializable;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.project.shoppingbackend.dao.UserDAO;
@@ -10,12 +12,17 @@ import org.project.shoppingbackend.dto.Cart;
 import org.project.shoppingbackend.dto.User;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class UserTestCase {
-
+public class UserTestCase implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static AnnotationConfigApplicationContext context;
 	private static UserDAO userDAO;
 	private static User user = null;
+	@SuppressWarnings("unused")
 	private static Address address = null;
+	@SuppressWarnings("unused")
 	private static Cart cart = null;
 	
 	@BeforeClass

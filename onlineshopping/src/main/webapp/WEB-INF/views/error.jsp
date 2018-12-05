@@ -4,6 +4,7 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <spring:url var="css" value="/resources/css" />
+<%-- <spring:url var="css" value="/resources/images" /> --%>
 
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 
@@ -33,6 +34,7 @@
 </head>
 
 <body>
+
 
 	<div class="wrapper">
 
@@ -82,7 +84,6 @@
 
 	</div>
 		
-	
 </body>
 
 
