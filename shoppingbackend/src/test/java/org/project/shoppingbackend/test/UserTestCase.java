@@ -3,6 +3,7 @@ package org.project.shoppingbackend.test;
 import static org.junit.Assert.assertEquals;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -20,7 +21,6 @@ public class UserTestCase implements Serializable {
 	private static AnnotationConfigApplicationContext context;
 	private static UserDAO userDAO;
 	private static User user = null;
-	@SuppressWarnings("unused")
 	private static Address address = null;
 	@SuppressWarnings("unused")
 	private static Cart cart = null;
@@ -68,6 +68,7 @@ public class UserTestCase implements Serializable {
 			cart = new Cart();
 			//one to one mapping here
 			cart.setUser(user);
+			//cart.setUserId(user.getId());
 			
 			//add the cart
 			assertEquals("Failed to add cart!!", true, userDAO.addCart(cart));
@@ -114,27 +115,26 @@ public class UserTestCase implements Serializable {
 			user.setCart(cart);
 			
 		}
-		
 			//add the user
 			assertEquals("Failed to add user!!", true, userDAO.addUser(user));
-
 	}*/
 	
 	/*@Test
 	public void testUpdateCart(){
 		
 		//fetch the user by its email 
-		user = userDAO.getByEmail("hr@gmail.com");
+		user = userDAO.getByEmail("dummy@gmail.com");
 		
 		//get the cart of the user
 		cart = user.getCart();
+		System.out.println(cart+"khjmbdmdbmjdfbjdfbmjfbmcbv");
 		cart.setGrandTotal(55555);
 		cart.setCartLines(2);
 		
 		assertEquals("Failed to the update the cart", true, userDAO.updateCart(cart));
 		
-	}*/
-	
+	}
+	*/
 	
 	/*@Test
 	public void testAddAddress(){
@@ -195,8 +195,8 @@ public class UserTestCase implements Serializable {
 		address.setUser(user);
 		assertEquals("Failed to add Shipping Address!!", true, userDAO.addAddress(address));
 			
-	}
-*/
+	}*/
+
 	/*@Test
 	public void testAddAddress(){
 		
@@ -219,7 +219,7 @@ public class UserTestCase implements Serializable {
 				assertEquals("Failed to add Shipping Address!!", true, userDAO.addAddress(address));
 	}*/
 	
-	@Test
+	/*@Test
 	public void testGetAddresses(){
 		
 		user = userDAO.getByEmail("hr@gmail.com");
@@ -229,6 +229,17 @@ public class UserTestCase implements Serializable {
 		
 		assertEquals("Failed to fetch the billing  of address and size not match!!", 
 			   "Mumbai", userDAO.getBillingAddress(user).getCity());
-	}
+	}*/
+	
+	/*@Test
+	public void testBillingAddressesByUserId(){
+		
+		address = userDAO.getBillingAddress(2);
+		
+		assertEquals("Failed to fetch the list of address and size not match!!", 
+				2, userDAO.getBillingAddress(2).getUserId());
+		
+	}*/
+	
 	
 }

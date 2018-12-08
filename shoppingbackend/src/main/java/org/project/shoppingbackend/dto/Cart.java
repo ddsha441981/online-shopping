@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 //import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
@@ -24,8 +25,10 @@ public class Cart implements Serializable {
 	
 	/*******************************************/
 	//Relationship of one to one mapping primary key of User_detail and  foreign key of cart table (user_id) 
+	//Uni-directional one to one mapping
 	@OneToOne
-//	@JoinColumn(name = "uid") this annotation is  help to change column name of the table 
+	//@JoinColumn(name = "uId") //this annotation is  help to change column name of the table 
+	//linking the cart with a user
 	private User user;
 	
 	public User getUser() {
@@ -37,12 +40,21 @@ public class Cart implements Serializable {
 	
 	/*******************************************/
 	
-	
+	//@Column(name = "user_id")
+	//private int userId;
 	@Column(name = "grand_total")
 	private double grandTotal;
 	@Column(name = "cart_lines")
 	private int cartLines;
 	
+	
+	
+	/*public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}*/
 	//setter and getter for cart class
 	public int getId() {
 		return id;

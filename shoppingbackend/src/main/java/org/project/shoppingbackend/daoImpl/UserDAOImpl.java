@@ -78,6 +78,70 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
+	public List<Address> listShippingAddresses(int userId) {
+		String selectQuery = "FROM Address WHERE userId = :userId AND shipping = :isShipping ORDER BY id DESC";
+		return sessionFactory
+				.getCurrentSession()
+					.createQuery(selectQuery,Address.class)
+						.setParameter("userId", userId)
+						.setParameter("isShipping", true)
+							.getResultList();
+		
+	}
+
+	@Override
+	public Address getBillingAddress(int userId) {
+		String selectQuery = "FROM Address WHERE userId = :userId AND billing = :isBilling";
+		try{
+		return sessionFactory
+				.getCurrentSession()
+					.createQuery(selectQuery,Address.class)
+						.setParameter("userId", userId)
+						.setParameter("isBilling", true)
+						.getSingleResult();
+		}
+		catch(Exception ex) {
+			return null;
+		}
+	}
+	
+	
+	/*@Override
+	public boolean updateAddress(Address address) {
+		try {			
+			sessionFactory.getCurrentSession().update(address);			
+			return true;
+		}
+		catch(Exception ex) {
+			return false;
+		}
+	}	*/
+	
+	
+
+	/*@Override
+	public User get(int id) {
+		try {			
+			return sessionFactory.getCurrentSession().get(User.class, id);			
+		}
+		catch(Exception ex) {
+			System.out.println(ex.getMessage());
+			return null;
+		}
+	}*/
+
+	/*@Override
+	public Address getAddress(int addressId) {
+		try {			
+			return sessionFactory.getCurrentSession().get(Address.class, addressId);			
+		}
+		catch(Exception ex) {
+			System.out.println(ex.getMessage());
+			return null;
+		}
+	}
+*/
+	/*@Override
 	public Address getBillingAddress(User user) {
 		
 		String selectQuery = "FROM Address WHERE user = :user AND billing = :billing";
@@ -117,7 +181,19 @@ public class UserDAOImpl implements UserDAO {
 			return null;
 		}
 		
-	}
+	}*/
+
+	/*@Override
+	public boolean addCart(Cart cart) {
+		try{
+			sessionFactory.getCurrentSession().persist(cart);
+			return true;
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			return false;
+		}	
+	}*/
 	
 	
 
