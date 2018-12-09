@@ -4,7 +4,8 @@
 	version="3.1">
 
 	<display-name>Archetype Created Web Application</display-name>
-	<!--  Configuring front controller -->
+	<!--  Spring MVC Configuring front controller -->
+
 	<servlet>
 		<servlet-name>dispatcher</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -31,7 +32,7 @@
 
 	</servlet-mapping>
 	
-	<!--  Spring Security Configuration -->
+	
 	
 	<!-- Loading  Spring-security-xml file before loading of filter(springSecurityFilterChain) -->
 	
@@ -39,14 +40,15 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 	
+	<!-- Loads Spring Security config file -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-			/WEB-INF/spring-security.xml     <!--  if you have multiple file here we can add , and add another file here -->
+			/WEB-INF/spring-security.xml     		<!--  if you have multiple file here  we can add(comma) , and add another file here -->
 		</param-value>
 	</context-param>
 	
-	
+	<!--  Spring Security Configuration -->
 	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>

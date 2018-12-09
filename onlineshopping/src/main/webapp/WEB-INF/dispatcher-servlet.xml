@@ -15,7 +15,7 @@
    ">
    
 	<context:component-scan base-package="org.project.onlineshopping" />
-	<context:component-scan base-package="org.project.shoppingbackend" />
+	
 	
 	
 	<bean  id="viewResolver"
