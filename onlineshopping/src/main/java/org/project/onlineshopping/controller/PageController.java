@@ -147,6 +147,17 @@ public class PageController {
 		return mv;
 	}
 
+	    /* access denied page for unauthorized person*/
+		@RequestMapping(value = "/access-denied")
+		public ModelAndView accessDenied() {
+			ModelAndView mv = new ModelAndView("error");
+			mv.addObject("title", "403-Access Denied");
+			mv.addObject("errorTitle", "Aha!  Caught You");
+			mv.addObject("errorDescription", "You are not authorized to view this page!!!");
+
+			return mv;
+		}
+	
 	/*
 	 * @RequestParam is a query string Its for Test Purpose
 	 */

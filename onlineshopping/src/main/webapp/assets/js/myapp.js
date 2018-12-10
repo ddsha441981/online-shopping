@@ -37,7 +37,7 @@ $(function() {
 	if(token.length > 0 && header.length > 0){
 		
 		//set the token header for the ajax request
-		//this code is help to skiping forbidden error 403 to activating and deactivating the product
+		//this code is help to skip forbidden error 403 while having we are activating and deactivating the product 
 		$(document).ajaxSend(function(e, xhr, options){
 			
 			xhr.setRequestHeader(header,token);
