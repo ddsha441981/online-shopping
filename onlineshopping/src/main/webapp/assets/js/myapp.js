@@ -26,7 +26,27 @@ $(function() {
 		break;
 	}
 	
+//--------------------------------End--------------------------------------------
+	
+		//to tackle the csrf token
+//--------------------------------Begin------------------------------------------
+	
+	var token = $('meta[name="_csrf"]').attr('content');
+	var header = $('meta[name="_csrf_header"]').attr('content');
+	
+	if(token.length > 0 && header.length > 0){
+		
+		//set the token header for the ajax request
+		//this code is help to skiping forbidden error 403 to activating and deactivating the product
+		$(document).ajaxSend(function(e, xhr, options){
+			
+			xhr.setRequestHeader(header,token);
+		});
+	}
+	
 //--------------------------------End--------------------------------------------	
+	
+		
 	//code for jquery datatable
 //--------------------------------Begin------------------------------------------
 	
@@ -377,6 +397,59 @@ var $adminProductsTable = $('#adminProductsTable');
 	}
 	
 //--------------------------------End--------------------------------------------	
+	
+	
+//validation code for login form
+//--------------------------------Begin------------------------------------------
+		$loginForm = $('#loginForm');
+		
+		if($loginForm.length){
+			
+			
+			$loginForm.validate({
+				
+				rules : {
+					
+					username : {
+						
+						required: true,
+						email: true
+					},
+					
+					password : {
+						
+						required: true
+					}
+				},
+				
+				messages : {
+					
+					username : {
+						
+						required: 'Please enter the username!!',
+						email: 'Please enter the  vaild email address!!!!!'
+					},
+					
+					password : {
+						
+						required: 'please enter the password!!'
+					}
+				},
+				
+				errorElement : 'em',
+				errorPlacement: function(error, element){
+					
+					//add the class of help-block
+					error.addClass('help-block');
+					
+					//add the error element after the input element
+					error.insertAfter(element);
+				}
+				
+			});
+		}
+//--------------------------------End--------------------------------------------		
+		
 	
 });
 //--------------------------------Main Function Ended----------------------------
