@@ -104,7 +104,7 @@ footer {
 }
 
 .adminTableImg{
-	height: 100px;
+	height: 80px;
 	width: 100px;
 }
 
@@ -170,3 +170,10 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 } 
+
+ /* fixing bug of data table */
+ .table-responsive{
+ overflow-x:inherit;
+  
+ }
+ 

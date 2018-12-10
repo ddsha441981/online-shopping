@@ -76,7 +76,7 @@
 						<div class="form-group">
 							<label class="control-label col-md-4">Enter Unit Price :</label>
 							<div class="col-md-8">
-								<sf:input type="number" path="unitPrice" class="form-control" placeholder="Unit Price In &#8377;" />
+								<sf:input type="number" path="unitPrice" class="form-control" placeholder="Unit Price In &#8377; "/>
 								<sf:errors path="unitPrice" cssClass="help-block" element="em"/>
 							</div>
 						</div>
@@ -147,7 +147,7 @@
 
 	<div class="row">
 	
-		<div class="col-xs-12">
+		<div class="col-xs-12" >
 		
 			<h3>Available Products</h3>
 			<hr/>
@@ -155,10 +155,11 @@
 		</div>
 			<div class="col-xs-12">
 			
-				<div style="overflow:auto">
-				
-					<!--  Products table for Admin  -->
-					<table id="adminProductsTable" class="table table-striped table-bordered">
+				<div class="container-fluid">
+					<div class="table-responsive">
+						
+						<!--  Products table for Admin  -->
+						<table id="adminProductsTable" class="table table-striped table-bordered">
 					
 						<thead>
 							<tr>
@@ -189,35 +190,13 @@
 						</tfoot>
 					
 					</table>
-				
+						
+					
+					</div>
 				</div>
-			
-			</div>
 		
-	
+			</div>
 	</div>
-	
-	<!-- Modal dialouge box for adding new Category -->
-	<!-- <div class="modal fade" id="myCategoryModal" role="dialog" tabindex="-1">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				Modal Header
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" >
-						<span>&times;</span>
-					</button>
-					<h4 class="modal-title">Add New Category</h4>
-				</div>
-				<div class="modal-body">
-				
-					Category Form
-				
-				</div>	
-			</div>
-		
-		</div>
-	
-	</div> -->
 	
 	<!-- Modal dialouge box for adding new Category --> 
   <div class="modal fade" id="myCategoryModal" role="dialog" tabindex="-1">  

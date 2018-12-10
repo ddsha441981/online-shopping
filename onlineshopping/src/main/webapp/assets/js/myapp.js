@@ -114,7 +114,7 @@ $(function() {
 			        	  //mRender function use for rupees symbol(Html code &#8377)
 			        	  data: 'unitPrice',
 			        	  mRender: function(data, type, row){
-			        		  return '&#8377; ' + data
+			        		  return '&#8377;' + data
 			        	  }
 			          },
 			          {
@@ -134,14 +134,26 @@ $(function() {
 			        		  mRender: function(data, type, row){
 				        		 var str = '';
 				        		 str += '<a href="'+window.contextRoot+ '/show/'+data+'/product" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a> &#160';
-				        		//disabled shopping cart button
-				        		 if(row.quantity < 1){
-				        			
-				        			 str += '<a href="javascript:void(0)" class="btn btn-success disabled"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
-				        		 }
-				        		 else{
+				        		
+				        		 if(userRole == 'ADMIN'){
 				        			 
-				        			 str += '<a href="'+window.contextRoot+ '/cart/add/'+data+'/product" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></a>'; 
+				        			 str += '<a href="'+window.contextRoot+ '/manage/'+data+'/product" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></a>';
+				        		 }
+				        		 else
+				        		 {
+				        			 
+				        		
+				        		 
+					        		 //disabled shopping cart button
+					        		 if(row.quantity < 1){
+					        			
+					        			 str += '<a href="javascript:void(0)" class="btn btn-success disabled"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
+					        		 }
+					        		 else{
+					        				 
+					        				 str += '<a href="'+window.contextRoot+ '/cart/add/'+data+'/product" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
+					        			 /*str += '<a href="'+window.contextRoot+ '/cart/add/'+data+'/product" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></a>';*/ 
+					        		 }
 				        		 }
 				        		 
 				        		 return str;

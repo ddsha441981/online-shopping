@@ -49,43 +49,38 @@
 
 				<div class="row">
 				
-					<div class="col-xs-12">
-					
-						<table id="productListTable" class="table table-striped table-borderd">
+						<div class="col-xs-12">
 						
-						
-							<thead>
-							
-								<tr>
-									<th></th>
-									<th>Name</th>
-									<th>Brand</th>
-									<th>Price</th>
-									<th>Qty. Available</th>
-									<th></th>
+							<div class="container-fluid">
+								<div class="table-responsive">
 								
-								</tr>
-							
-							</thead>
-							
-							
-							<tfoot>
-							
-								<tr>
-									<th></th>
-									<th>Name</th>
-									<th>Brand</th>
-									<th>Price</th>
-									<th>Qty. Available</th>
-									<th></th>
-									
+									<table id="productListTable" class="table table-striped table-borderd">
+								<thead>
+									<tr>
+										<th></th>
+										<th>Name</th>
+										<th>Brand</th>
+										<th>Price</th>
+										<th>Qty. Available</th>
+										<th></th>
+									</tr>
+								</thead>
 								
-								</tr>
-							
-							</tfoot>
+								<tfoot>
+									<tr>
+										<th></th>
+										<th>Name</th>
+										<th>Brand</th>
+										<th>Price</th>
+										<th>Qty. Available</th>
+										<th></th>
+									</tr>
+								</tfoot>
+							</table>
+								
+								</div>
+							</div>
 						
-						
-						</table>
 					
 					</div>
 				
