@@ -45,7 +45,7 @@
             </security:authorize>
           
           	<security:authorize access="isAuthenticated()">
-	          	<li class="dropdown">
+	          	<li class="dropdown" id="userCart">
 	         		<a href="javascript:void(0)"
 	         			class="btn btn-default dropdown-toggle"
 	         			id="dropdownMenu1"
@@ -59,8 +59,8 @@
 	         		<!-- access only user who can add cart -->
 	         		<security:authorize access="hasAuthority('USER')">
 		         			<li>
-		         				<a href="${contextRoot}/cart">
-		         					<span class="glyphicon glyphicon-shopping-cart"></span>
+		         				<a href="${contextRoot}/cart/show">
+		         					<span class="glyphicon glyphicon-shopping-cart"></span>&#160;
 		         					<span class="badge">${userModel.cart.cartLines}</span>
 		         					- &#8377; ${userModel.cart.grandTotal}
 		         				</a>

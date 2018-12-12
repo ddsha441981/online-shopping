@@ -5,7 +5,6 @@ import java.util.List;
 import org.hibernate.SessionFactory;
 import org.project.shoppingbackend.dao.UserDAO;
 import org.project.shoppingbackend.dto.Address;
-import org.project.shoppingbackend.dto.Cart;
 import org.project.shoppingbackend.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -48,7 +47,7 @@ public class UserDAOImpl implements UserDAO {
 		
 	}
 
-	@Override
+	/*@Override
 	public boolean updateCart(Cart cart) {
 		try{
 			sessionFactory.getCurrentSession().update(cart);
@@ -59,7 +58,7 @@ public class UserDAOImpl implements UserDAO {
 			return false;
 		}	
 	}
-
+*/
 	@Override
 	public User getByEmail(String email) {
 		String selectQuery = "FROM User WHERE email = :email"; 

@@ -39,6 +39,6 @@ public interface UserDAO {
 	
 	/**updateCart cart*/
 		//boolean addCart(Cart cart);
-		boolean updateCart(Cart cart);
+		//boolean updateCart(Cart cart);
 	
 }

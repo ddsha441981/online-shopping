@@ -93,6 +93,11 @@
 			<c:if test="${userClickManageProducts == true}">
 				<%@ include file="manageProducts.jsp"%>
 			</c:if>
+			
+			<!--  When User Click On Manage Product Page Load only -->
+			<c:if test="${userClickShowCart == true}">
+				<%@ include file="cart.jsp"%>
+			</c:if>
 
 		</div>
 

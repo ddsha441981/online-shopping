@@ -36,7 +36,7 @@ INSERT INTO user_detail
 VALUES ('Ravichandra', 'Ashwin', 'SUPPLIER', true, '$2y$12$qr2B4ehhayuqLmxQXwOLK.s93pyt52ZbEghobyaulGyM8btPOxZmK', 'ra@gmail.com', '7777777777');
 INSERT INTO user_detail 
 (first_name, last_name, role, enabled, password, email, contact_number) 
-VALUES ('Khozema', 'Nullwala', 'USER', true, '$2y$12$t5aXUvTBJn.tH8KTBnqDUOl7B/b4X49sLAum0oXJCcHf39jBiS1pu', 'kn@gmail.com', '7777777777');
+VALUES ('deendayal', 'kumawat', 'USER', true, '$2y$12$t5aXUvTBJn.tH8KTBnqDUOl7B/b4X49sLAum0oXJCcHf39jBiS1pu', 'dd@gmail.com', '7777777777');
 
 create table product(
 id IDENTITY,
@@ -55,6 +55,22 @@ CONSTRAINT pk_product_id PRIMARY KEY (id),
 CONSTRAINT fk_product_category_id FOREIGN KEY (category_id) REFERENCES category(id),
 CONSTRAINT fk_product_supplier_id FOREIGN KEY (supplier_id) REFERENCES user_detail(id),
 );
+
+-- the cart line table to store the cart details
+
+CREATE TABLE cart_line (
+	id IDENTITY,
+	cart_id int,
+	total DECIMAL(10,2),
+	product_id int,
+	product_count int,
+	buying_price DECIMAL(10,2),
+	is_available boolean,
+	CONSTRAINT fk_cartline_product_id FOREIGN KEY (product_id ) REFERENCES product (id),
+	CONSTRAINT pk_cartline_id PRIMARY KEY (id)
+);
+
+
 
 INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
 VALUES ('PRDABC123DEFX', 'iPhone 5s', 'apple', 'This is one of the best phone available in the market right now!', 18000, 5, true, 3, 2, 0, 0 );
