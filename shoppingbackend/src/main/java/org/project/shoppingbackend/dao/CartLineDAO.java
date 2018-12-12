@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.project.shoppingbackend.dto.Cart;
 import org.project.shoppingbackend.dto.CartLine;
+import org.project.shoppingbackend.dto.OrderDetail;
 
 public interface CartLineDAO {
 
@@ -24,6 +25,9 @@ public interface CartLineDAO {
 	
 	//update the cart
 	boolean updateCart(Cart cart);
+	// adding order details
+	boolean addOrderDetail(OrderDetail orderDetail);
+
 
 	
 }

@@ -26,7 +26,7 @@ public interface UserDAO {
 
 	/** adding and updating a new address*/
 	
-		//Address getAddress(int addressId);
+		Address getAddress(int addressId);
 		//boolean addAddress(Address address);
 		//boolean updateAddress(Address address);
 		Address getBillingAddress(int userId);

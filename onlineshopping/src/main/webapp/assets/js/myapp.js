@@ -1,6 +1,15 @@
 //--------------------------------Main Function Started---------------------------
 $(function() {
 	
+	
+	
+	// for adding a loader
+	$(window).load(function(){
+		setTimeout(function() {
+			$(".se-pre-con").fadeOut("slow");
+		}, 500);			
+	});	
+	
 //--------------------------------Begin------------------------------------------
 	
 	//solving the active menu problem

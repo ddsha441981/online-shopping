@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.project.shoppingbackend.dao.CartLineDAO;
 import org.project.shoppingbackend.dto.Cart;
 import org.project.shoppingbackend.dto.CartLine;
+import org.project.shoppingbackend.dto.OrderDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -113,4 +114,14 @@ public class CartLineDAOImpl implements CartLineDAO {
 		}	
 	}
 
+	@Override
+	public boolean addOrderDetail(OrderDetail orderDetail) {
+		try {			
+			sessionFactory.getCurrentSession().persist(orderDetail);			
+			return true;
+		}
+		catch(Exception ex) {
+			return false;
+		}
+	}
 }

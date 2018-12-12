@@ -129,7 +129,7 @@ public class UserDAOImpl implements UserDAO {
 		}
 	}*/
 
-	/*@Override
+	@Override
 	public Address getAddress(int addressId) {
 		try {			
 			return sessionFactory.getCurrentSession().get(Address.class, addressId);			
@@ -139,7 +139,7 @@ public class UserDAOImpl implements UserDAO {
 			return null;
 		}
 	}
-*/
+
 	/*@Override
 	public Address getBillingAddress(User user) {
 		
