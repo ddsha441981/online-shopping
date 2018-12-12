@@ -1,4 +1,8 @@
   <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+ 
+  <script>
+  window.userRole = '${userModel.role}';
+  </script>
   
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
@@ -81,9 +85,3 @@
         </div>
       </div>
     </nav>
-    
-  <script>
-  
-  window.userRole = '${userModel.role}';
-  
-  </script>

@@ -18,6 +18,9 @@ public class CartController {
 	@RequestMapping("/show")
 	public ModelAndView showCart(@RequestParam(name = "result", required = false) String result ){
 		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("title", "User Cart");
+		mv.addObject("userClickShowCart", true);
+
 		if(result!=null){
 			//multiple case
 			switch(result){
@@ -26,6 +29,9 @@ public class CartController {
 				break;
 			case "added":
 				mv.addObject("message", "Cart Line has been added successfully!!!");
+				break;
+			case "modified":
+				mv.addObject("message", "One or more items inside cart has been modified!");
 				break;
 			case "deleted":
 				mv.addObject("message", "Cart Line has been remove successfully!!!");
@@ -41,9 +47,13 @@ public class CartController {
 				break;
 			}
 		}
-		mv.addObject("title", "User Cart");
-		mv.addObject("userClickShowCart", true);
-		mv.addObject("cartLines", cartService.getCartLines());
+		else {
+			String response = cartService.validateCartLine();
+			if(response.equals("result=modified")) {
+				mv.addObject("message", "One or more items inside cart has been modified!");
+			}
+		}
+			mv.addObject("cartLines", cartService.getCartLines());
 		
 		return mv;
 	}
@@ -68,5 +78,20 @@ public class CartController {
 		//this method declaration is cart service class
 		String response = cartService.addCartLine(productId);
 		return "redirect:/cart/show?"+response;
+	}
+	
+	/* after validating it redirect to checkout
+	 * if result received is success proceed to checkout 
+	 * else display the message to the user about the changes in cart page
+	 * */	
+	@RequestMapping("/validate")
+	public String validateCart() {	
+		String response = cartService.validateCartLine();
+		if(!response.equals("result=success")) {
+			return "redirect:/cart/show?"+response;
+		}
+		else {
+			return "redirect:/cart/checkout";
+		}
 	}
 }
