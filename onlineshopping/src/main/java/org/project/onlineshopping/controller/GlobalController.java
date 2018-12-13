@@ -5,6 +5,8 @@ import javax.servlet.http.HttpSession;
 import org.project.onlineshopping.model.UserModel;
 import org.project.shoppingbackend.dao.UserDAO;
 import org.project.shoppingbackend.dto.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -14,6 +16,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 @ControllerAdvice
 public class GlobalController {
 
+	// Logger Class
+	private static final Logger logger = LoggerFactory.getLogger(GlobalController.class);
+
+	
 	//session management
 	@Autowired
 	HttpSession session;
