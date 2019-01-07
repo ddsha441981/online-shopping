@@ -375,7 +375,8 @@ a:hover, a:active {
 		width:98%;
 		height:100%;
 		z-index:9999;
-		background:url(../images/pre-loader.gif) 50% no-repeat #fff
+		/* background:url(../images/pre-loader.gif) 50% no-repeat #fff */
+		background:url(../images/load.gif) 50% no-repeat #fff
 }
 
 
